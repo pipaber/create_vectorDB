@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  agentdbpostgres:
+    image: pgvector/pgvector:pg16
+    restart: always
+    environment:
+      POSTGRES_USER: pipaber
+      POSTGRES_PASSWORD: bosonhiggs
+      POSTGRES_DB: VectorDB
+    ports:
+      - "5442:5432"
+    volumes:
+      - VectorDB:/var/lib/postgresql/data
+
+volumes:
+  VectorDB:
